@@ -1,0 +1,69 @@
+<!-- <input type="text" placeholder="type A value" [(ngModel)]="A">
+<input type="text" placeholder="type A value" [(ngModel)]="B">
+<button (click)="InterchangeValue()">SWAP</button> -->
+
+
+<!-- <select (change)="getDistrict($event.target.value)">
+    <option value="" disabled selected>Select Country </option>
+    <option *ngFor="let item of stateList" [value]="item.stateId">{{item.name}}</option>
+</select>
+
+<select>
+    <option value="" disabled selected>Select District </option>
+    <option *ngFor="let item of districList" [value]="item.districtId">{{item.name}}</option>
+</select> -->
+
+
+
+<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+
+
+<div class="row outerDiv" *ngFor="let item of productList">
+
+    <div class="col"> <img src="{{picUrl}}{{ item.productImage }}" style="border-radius: 50px;height: 60px;
+            width: 60px;"></div>
+    <div class="col">Name: {{item.name}}</div>
+    <div class="col"> Price: {{item.price}}</div>
+
+    <div (click)="orderDetaildView(item._id)"> <img src="../../../assets/images/cartjpeg" style="border-radius: 50px;
+    height: 20px;
+    width: 20px"></div>
+
+</div>
+
+
+<div *ngIf="orderView" class="orderDetail">
+        <div class="col"> <img src="{{picUrl}}{{ productDetail['productImage'] }}" style="border-radius: 50px;height: 60px;
+            width: 60px;"></div>
+    <div class="col">Name: {{productDetail.name}}</div>
+    <div class="col"> Price: {{productDetail.price}}</div>
+
+    <div>
+            <input type="text" class="form-control1"  placeholder="Enter Name" [(ngModel)]="name">
+            <input type="text" class="form-control1" placeholder="Enter Address" [(ngModel)]="address">
+
+    </div>
+
+<button class="btn-primary" (click)="placeOrder()" style="margin-top: 10px">Place Order</button>
+
+<button (click)="myOrderListDetail()">My OrderList</button>
+
+</div>
+
+
+
+<div *ngIf="myOrderListView">
+        <div class="row outerDiv" *ngFor="let item of myOrderList">
+
+                <div class="col"> <img src="{{picUrl}}{{ item['product'].productImage }}" style="border-radius: 50px;height: 60px;
+                        width: 60px;"></div>
+                <div class="col">Name: {{item['product'].name}}</div>
+                <div class="col"> Price: {{item['product'].price}}</div>
+            
+                
+            
+            </div>
+</div><br><br>
+
+
+ <button class="primary"  [routerLink]="['/email']">Email Page</button><br> 
